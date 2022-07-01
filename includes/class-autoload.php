@@ -1,18 +1,19 @@
 <?php
 
-spl_autoload_register('myAutoLoader');
+    spl_autoload_register('myAutoLoader');
 
-function myAutoLoader($className){
-    $url= $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    // This function will include all the classes
+    function myAutoLoader($className){
+        $url= $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 
-    if(strpos($url, 'includes')!==false){
-        $path = '../classes/';
+        if(strpos($url, 'includes')!==false){
+            $path = '../classes/';
+        }
+        else{
+            $path = 'classes/';
+        }
+        $extension = '.class.php';
+        require_once $path.$className.$extension;
     }
-    else{
-        $path = 'classes/';
-    }
-    $extension = '.class.php';
-    require_once $path.$className.$extension;
-}
 
 ?>

@@ -12,7 +12,7 @@ class Calc{
         $this->operator = $operator;
     }
 
-
+    // Process the inputs according to the operator
     public function calculator(){
         switch ($this->operator) {
             case '+':

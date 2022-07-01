@@ -73,13 +73,16 @@
 
           include './includes/class-autoload.php';
 
+          // Get the numbers and operator value from form
           $num1 = $_POST['num1'];
           $num2 = $_POST['num2'];
           $operator = $_POST['operator'];
 
+          // Create an instance of Clac class
           $calc = new Calc($num1, $num2, $operator);
 
           try {
+              // Print the inputs and output
               echo $num1." ".$operator." ".$num2." = ". $calc->calculator();
           } catch (TypeError $e) {
               echo "Error!: " .$e->getMessage();
